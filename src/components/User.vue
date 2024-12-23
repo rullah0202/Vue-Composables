@@ -1,12 +1,13 @@
 <script setup>
  import { useFetch } from "@/composables/fetch";
-import { useName } from "@/composables/name.js";
+ import { useName } from "@/composables/name.js";
+import { ref } from "vue";
  const { firstName, lastName } = useName();
 
- let url = "https://jsonplaceholder.typicode.com/posts/1";
+ let url = ref("https://jsonplaceholder.typicode.com/posts/1");
  const { data, error } = useFetch(url);
  function changeUrl(){
-    url = "https://dummyjson.com/product/1";
+    url.value = "https://dummyjson.com/product/1";
  }
 </script>
 
